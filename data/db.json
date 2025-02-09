@@ -1,0 +1,91 @@
+{
+  "slots": {
+    "20250401-1400": {
+      "slotId": "20250401-1400",
+      "startYYYYMMDDhhmm": "",
+      "dateAsText": "Dienstag<br>1. Apr",
+      "startTimeAsText": "14:00",
+      "vonBisAsText": "14-15",
+      "drivers": []
+    },
+    "20250401-1500": {
+      "slotId": "20250401-1500",
+      "startYYYYMMDDhhmm": "",
+      "dateAsText": "Dienstag<br>1. Apr",
+      "startTimeAsText": "15:00",
+      "vonBisAsText": "15-16",
+      "drivers": []
+    },
+    "20250401-1600": {
+      "slotId": "20250401-1600",
+      "startYYYYMMDDhhmm": "",
+      "dateAsText": "Dienstag<br>1. Apr",
+      "startTimeAsText": "16:00",
+      "vonBisAsText": "16-17",
+      "drivers": ["marco1", "bettina1"]
+    },
+    "20250402-1400": {
+      "slotId": "20250402-1400",
+      "startYYYYMMDDhhmm": "",
+      "dateAsText": "Mittwoch<br>2. Apr",
+      "startTimeAsText": "14:00",
+      "vonBisAsText": "14-15",
+      "drivers": []
+    },
+    "20250402-1500": {
+      "slotId": "20250402-1500",
+      "startYYYYMMDDhhmm": "",
+      "dateAsText": "Mittwoch<br>2. Apr",
+      "startTimeAsText": "15:00",
+      "vonBisAsText": "15-16",
+      "drivers": []
+    },
+    "20250402-1600": {
+      "slotId": "20250402-1600",
+      "startYYYYMMDDhhmm": "",
+      "dateAsText": "Mittwoch<br>2. Apr",
+      "startTimeAsText": "16:00",
+      "vonBisAsText": "16-17",
+      "drivers": []
+    },
+    "20250403-1400": {
+      "slotId": "20250403-1400",
+      "startYYYYMMDDhhmm": "",
+      "dateAsText": "Donnerstag<br>3. Apr",
+      "startTimeAsText": "14:00",
+      "vonBisAsText": "14-15",
+      "drivers": []
+    },
+    "20250403-1500": {
+      "slotId": "20250403-1500",
+      "startYYYYMMDDhhmm": "",
+      "dateAsText": "Donnerstag<br>3. Apr",
+      "startTimeAsText": "15:00",
+      "vonBisAsText": "15-16",
+      "drivers": ["tamas1", "marco1"]
+    },
+    "20250403-1600": {
+      "slotId": "20250403-1600",
+      "startYYYYMMDDhhmm": "",
+      "dateAsText": "Donnerstag<br>3. Apr",
+      "startTimeAsText": "16:00",
+      "vonBisAsText": "16-17",
+      "drivers": ["marco1"]
+    }
+  },
+
+  "tours": {
+    "20250401-1400": {
+      "slotId": "20250401-1400",
+      "driverId": "marco1",
+      "driverName": "Marco",
+      "passenger": "Frau Müller"
+    },
+    "20250402-1500": {
+      "slotId": "20250402-1500",
+      "driverId": "tamas1",
+      "driverName": "Tamás",
+      "passenger": "Frau Elmiger"
+    }
+  }
+}

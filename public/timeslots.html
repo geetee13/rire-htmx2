@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Time Slots</title>
+    <link rel="stylesheet" href="slots.css" />
+    <script src="https://unpkg.com/htmx.org@1.9.9"></script>
+  </head>
+  <body>
+    <div class="timeslots-container">
+      <h2>Time Slots</h2>
+      <div class="timeslots">
+        <button class="slot slot-day-separator slot-my-anmeldung">
+          <span class="date-disp">Montag 03/Feb</span>
+          <span class="day-summary-status">Keine Fahrten</span>
+          <span class="tbd-maybe-some-action"></span>
+        </button>
+        <button
+          class="slot slot-open"
+          hx-post="/slot/20230101-1400/anmeldung"
+          hx-target="this"
+          hx-swap="outerHTML"
+        >
+          <span class="date-disp">Montag<br />03/Feb</span>
+          <span class="time">14:00</span>
+          <span class="slot-status">frei</span>
+        </button>
+        <button
+          class="slot slot-my-anmeldung"
+          hx-post="/toggle-slot/20230101-1500"
+          hx-target="this"
+          hx-swap="outerHTML"
+        >
+          <span class="date-disp">Montag<br />03/Feb</span>
+          <span class="time">15:00</span>
+          <span class="slot-status">warten auf Bewohner</span>
+        </button>
+        <button class="slot slot-day-separator slot-my-tour">
+          <span class="date-disp">Dienstag 04/Feb</span>
+          <span class="tbd"></span>
+          <span class="day-summary-status">DU: 14:00</span>
+          <span class="tbd-maybe-some-action"></span>
+        </button>
+        <button
+          class="slot slot-my-tour"
+          hx-post="/toggle-slot/20230101-1400"
+          hx-target="this"
+          hx-swap="outerHTML"
+        >
+          <span class="date-disp">Dienstag<br />04/Feb</span>
+          <span class="time">14:00</span>
+          <span class="slot-status">DU FÄHRST<br />Frau Sommer</span>
+        </button>
+        <button
+          class="slot slot-others-tour"
+          hx-post="/toggle-slot/20230101-1500"
+          hx-target="this"
+          hx-swap="outerHTML"
+        >
+          <span class="date-disp">Dienstag<br />04/Feb</span>
+          <span class="time">15:00</span>
+          <span class="slot-status">Marco<br />Frau Elmiger</span>
+        </button>
+        <button class="slot slot-day-separator slot-open">
+          <span class="date-disp">Mittwoch 05/Feb</span>
+          <span class="day-summary-status">Keine Fahrten</span>
+          <span class="tbd-maybe-some-action"></span>
+        </button>
+      </div>
+    </div>
+    <div style="text-align: center; margin-top: 2rem;">
+      <a href="/">Back to Home</a>
+    </div>
+  </body>
+</html>

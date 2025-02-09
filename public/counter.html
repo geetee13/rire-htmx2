@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTMX Counter</title>
+    <link rel="stylesheet" href="counter.css" />
+    <script src="https://unpkg.com/htmx.org@1.9.9"></script>
+  </head>
+  <body>
+    <div class="counter-container">
+      <h1>HTMX Counter</h1>
+      <div>
+        <button
+          class="counter-button"
+          hx-post="/decrement"
+          hx-target="#counter"
+        >
+          -
+        </button>
+        <span id="counter" hx-get="/counter" hx-trigger="load">0</span>
+        <button
+          class="counter-button"
+          hx-post="/increment"
+          hx-target="#counter"
+        >
+          +
+        </button>
+      </div>
+    </div>
+    <div style="text-align: center; margin-top: 2rem;">
+      <a href="/">Back to Home</a>
+    </div>
+  </body>
+</html>
