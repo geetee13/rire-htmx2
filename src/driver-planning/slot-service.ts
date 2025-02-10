@@ -62,12 +62,17 @@ export function createSlotHtml(slotData: Slot, currentDriverId: string): string 
   const { slotStatusClass, statusText, actionUrl, actionVerb } =
     determineSlotStatus(slotData, tourData, currentDriverId);
   
+  const htmxAction = !actionVerb ? "" : `
+  ${actionVerb}="${actionUrl}" 
+  hx-target="this" 
+  hx-swap="outerHTML"`;
+
+  const alertText = 'Ein Bewohner ist bereits eingeplant für dieses Tour.\\nEine Abmeldung ist nur telefonisch möglich.';
+  const alertOnClick = slotStatusClass === 'slot-my-tour' ? ` onclick="alert('${alertText}')" ` : "";
   return `
-    <button 
-      class="slot ${slotStatusClass}" 
-      ${actionVerb}="${actionUrl}" 
-      hx-target="this" 
-      hx-swap="outerHTML">
+    <button ${alertOnClick}
+      class="slot ${slotStatusClass}" ${htmxAction}
+      >
         <span class="date-disp">${slotData.dateAsText}</span>
         <span class="time">${slotData.vonBisAsText}</span>
         <span class="slot-status">${statusText}</span>
