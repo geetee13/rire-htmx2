@@ -6,9 +6,12 @@ import driverPlanningRoutes from './src/driver-planning/driver-planning-routes';
 const app = express();
 const PORT = 3000;
 
+const delayMiddleware = (ms: number) => (req: any, res: any, next: any) => setTimeout(next, ms);
+
 // Middleware
 app.use(express.static('public'));
 app.use(express.json());
+//app.use(delayMiddleware(3000));
 
 // Routes
 app.use(counterRoutes);
