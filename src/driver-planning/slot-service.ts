@@ -98,3 +98,7 @@ export function removeDriver(slotId: string, driverId: string): Slot {
   slot.drivers = slot.drivers.filter((e) => e !== driverId);
   return slot;
 }
+
+export function createAbmeldenHtml(slotData: Slot, currentDriverId: string) {
+  throw new Error('Function not implemented.');
+}

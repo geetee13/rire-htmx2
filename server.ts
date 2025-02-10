@@ -1,4 +1,4 @@
-import express from 'express';
+import express, { NextFunction } from 'express';
 import counterRoutes from './src/counter/counter-routes';
 import slotRoutes from './src/driver-planning/slot-routes';
 import driverPlanningRoutes from './src/driver-planning/driver-planning-routes';
@@ -6,7 +6,7 @@ import driverPlanningRoutes from './src/driver-planning/driver-planning-routes';
 const app = express();
 const PORT = 3000;
 
-const delayMiddleware = (ms: number) => (req: any, res: any, next: any) => setTimeout(next, ms);
+const delayMiddleware = (ms: number) => (req: Request, res: Response, next: NextFunction) => setTimeout(next, ms);
 
 // Middleware
 app.use(express.static('public'));
