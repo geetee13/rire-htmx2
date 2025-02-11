@@ -1,10 +1,11 @@
 import express, { Request, Response, NextFunction } from "express";
 
+const AUTH_COOKIE = "rire-user";
 const router = express.Router();
 
 // Middleware to check auth and send form dynamically if needed
 const checkAuth = (req: Request, res: Response, next: NextFunction) => {
-    if (!req.cookies["rire-user"]) {
+    if (!req.cookies[AUTH_COOKIE]) {
         if (req.headers["hx-request"]) {
             return res.send(getLoginForm(req.originalUrl)); // Send form if HTMX request
         } else {
@@ -29,9 +30,9 @@ const checkAuth = (req: Request, res: Response, next: NextFunction) => {
 // Protected page
 router.get("/protected", checkAuth, (req: Request, res: Response) => {
     res.send(`
-        <h1>Welcome to the Protected Page! ${req.cookies["rire-user"]}</h1>
+        <h1>Welcome to the Protected Page! ${req.cookies[AUTH_COOKIE]}</h1>
         <p>You have successfully authenticated.</p>
-        <h1/>
+        <h1></h1>
         <button hx-post="/de-auth" hx-swap="innerHTML">Logout</button>
     `);
 });
@@ -53,7 +54,7 @@ router.post("/submit-form", (req: Request, res: Response) => {
     const { token, returnUrl } = req.body;
 
     // Simulate storing the token (here using a cookie)
-    res.cookie("rire-user", token, { httpOnly: true });
+    res.cookie(AUTH_COOKIE, token, { httpOnly: true });
 
     // If it's an HTMX request, use HX-Redirect
     if (req.headers["hx-request"]) {
@@ -69,15 +70,25 @@ router.post("/de-auth", (req: Request, res: Response) => {
     const { token, returnUrl } = req.body;
 
     // Simulate storing the token (here using a cookie)
-    res.clearCookie("rire-user");
+    res.clearCookie(AUTH_COOKIE);
 
     // If it's an HTMX request, use HX-Redirect
     if (req.headers["hx-request"]) {
-        res.set("HX-Redirect", "/protected");
+        res.set("HX-Redirect", "/logout");
+        //res.setHeader("HX-Location", JSON.stringify({ path: "/logout" }));
         res.end();
     } else {
-        res.redirect("/protected");
+        res.redirect("/logout");
     }
+});
+
+router.get("/logout", (req: Request, res: Response) => {
+    res.send(`
+        <h1>Welcome to the Not Protected Page! </h1>
+        <p>You have successfully logged out.</p>
+        <h1></h1>
+        <button hx-get="/protected" hx-swap="innerHTML">Login</button>
+    `);
 });
 
 export default router;

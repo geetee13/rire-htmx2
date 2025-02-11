@@ -47,4 +47,5 @@ export function logout(res: Response) {
         res.clearCookie(AUTH_COOKIE);
 }
 
-export default checkAuth
+export default checkAuth;
+

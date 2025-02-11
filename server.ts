@@ -12,6 +12,11 @@ const delayMiddleware = (ms: number) => (req: Request, res: Response, next: Next
 
 // Middleware
 app.use(express.urlencoded({ extended: true })); // Parse form data
+app.use((req, res, next) => {
+  console.log(`[${new Date().toISOString()}] ${req.method} ${req.url}`);
+  next();
+});
+
 app.use(cookieParser());
 app.use(express.static('public'));
 app.use(express.json());
