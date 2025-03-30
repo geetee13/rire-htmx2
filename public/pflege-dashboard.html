@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Driver Dashboard</title>
+    <link rel="stylesheet" href="slots.css" />
+    <script src="https://unpkg.com/htmx.org@1.9.9"></script>
+  </head>
+  <body>
+    <div id="pflege-dashboard" class="timeslots-container">
+      <h2>Pflege Dashboard</h2>
+      <div
+        hx-get="/pflege-dashboard"
+        hx-trigger="load"
+        hx-target="#pflege-dashboard"
+        hx-swap="outerHTML"
+      >
+        <p>Loading dashboard...</p>
+      </div>
+    </div>
+    <div style="text-align: center; margin-top: 2rem;">
+      <a href="/">Back to Home</a>
+    </div>
+  </body>
+</html>

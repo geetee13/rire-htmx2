@@ -1,7 +1,8 @@
 import express, { NextFunction } from 'express';
 import counterRoutes from './src/counter/counter-routes';
-import slotRoutes from './src/driver-planning/slot-routes';
+import dpSlotRoutes from './src/driver-planning/slot-routes';
 import driverPlanningRoutes from './src/driver-planning/driver-planning-routes';
+import pflegeDashboardRoutes from './src/pflege-dashboard/pflege-dashboard-routes';
 import authRoutes from './src/auth/auth-routes';
 import cookieParser from 'cookie-parser';
 
@@ -24,8 +25,9 @@ app.use(express.json());
 
 // Routes
 app.use(counterRoutes);
-app.use(slotRoutes);
+app.use(dpSlotRoutes);
 app.use(driverPlanningRoutes);
+app.use(pflegeDashboardRoutes);
 app.use(authRoutes);
 
 app.listen(PORT, () => {
